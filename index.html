@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- VUE -->
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <!-- MAIN STYLES -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- SCRIPT JS -->
+  <script defer src="js/script.js"></script>
+
+  <title>Vue Hello</title>
+</head>
+<body>
+
+  <div id="app">
+
+    <h1 :class="classeTestoRosso">{{messaggio}}</h1>
+    <h3 :class="colorTextTitle">Devo studiare Js</h3>
+    <p>{{messaggioSaluto}} <strong :class="colorText">{{userName}} {{userLastName}}</strong></p>
+
+    <p>Scegli un colore tra black, red, blue, green o pink per cambiare il colore del nome</p>
+    <input type="text" v-model="colorText">
+
+    <p>cambia il saluto</p>
+    <input type="text" v-model="messaggioSaluto">
+
+    
+    <div>
+      
+      <button @click="cambiaColore()">Cambia colore al sottotitolo (continuo)</button>
+      <button @click="changeImg('cane-2.jpeg')">Cambia immagine</button>
+      <button @click="showHide()">mostra immagine / nascondi testo (e viceversa)</button>
+
+    </div>
+    <p>nomi immagini cane.jpeg e cane-2.jpeg</p>
+    <input type="text" v-model="imgName">
+
+    <img v-show="isShowImg" :src="path + imgName" :alt="createAltImg()">
+    <p v-show="!isShowImg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut nulla accusantium, optio sapiente doloremque ad hic officia ea? Expedita aliquam dolor blanditiis, ducimus officia eaque incidunt veniam voluptas laudantium cupiditate.</p>
+
+    <h2>Contatore con codice js: {{counter}}</h2>
+    <h4 v-show="counter === 10 || counter === 0">sei arrivato alla fine del contatore</h4>
+
+    <div>
+      <button @click="counter++" :disabled="counter === 10">Aumenta contatore</button>
+      <button @click="counter--" :disabled="counter === 0">Diminuisci contatore</button>
+    </div>
+
+    <h2>Contatore con funzione: {{counter2}}</h2>
+    <h4 v-show="counter2 === 10">sei arrivato alla fine del contatore</h4>
+
+    <div>
+      <button @click="increaseDecreaseCounter(true)" :disabled="counter2 === 10">Aumenta contatore</button>
+      <button @click="increaseDecreaseCounter(false)" :disabled="counter2 === 0">Diminuisci contatore</button>
+    </div>
+
+  </div>
+  
+</body>
+</html>
