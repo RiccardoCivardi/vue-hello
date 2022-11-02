@@ -25,7 +25,11 @@ createApp({
       colorText: '',
       colorTextTitle: 'black',
       counter: 0,
-      counter2: 0
+      counter2: 0,
+      mieClassi: 'text-primary fw-bold text-decoration-underline',
+      randomNumber: '',
+      text: 'testo trsto testo testo testo',
+      textHtml: 'testo <strong>testo</strong> <i>testo</i>'
     }
   },
 
@@ -54,7 +58,24 @@ createApp({
     increaseDecreaseCounter(bool){
       // incrementa o decrementa a seconda del bottone cliccato che passa il parametro
       bool ? this.counter2++ : this.counter2--;
+    },
+
+    getRandomNumber(min,max){
+      return this.randomNumber = Math.floor(Math.random() * (max - min) +1) + min;
+    },
+
+    funzioneEstesa: function() {
+      console.log('FUNZIONE ESTESA');
+    },
+
+    funzioneCompatta() {
+      console.log('FUNZIONE COMPATTA')
+    },
+
+    arrowFunzione : () => {
+      console.log('arrow')
     }
+
 
   }
 }).mount('#app');
